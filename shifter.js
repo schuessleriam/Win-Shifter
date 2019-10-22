@@ -27,6 +27,5 @@ module.exports = (rs, ra, newOutcome) => {
         }
         
         newOutcome(results);
-       console.log(shift);
     });
 }

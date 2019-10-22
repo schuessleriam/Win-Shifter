@@ -1,24 +1,20 @@
 const shifter = require('./shifter');
+const data = require('./data');
  
 let wins = 0;
 let loss = 0;
 let ties = 0;
 
-const ra = [4,9,2,4,3,3,0,10,14,2,5,11,4,5,1,7,7,
-    4,6,3,5,0,6,13,4,5,2,6,5,1,3,11,11,1,3,2,3,0,
-    3,0,2,4,7,1,2,3,12,4,2,3,9,6,7,1,4,5,5,9,10,
-    2,16,8,1,4,3,2,10,3,5,8,3,2,4,8,7,11,5,5,8,4,
-    2,3,1,1,6,5,3,1,6,12,6,10,4,8,4,1,4,1,10,3,4,6,
-    14,4,2,3,11,3,2,5,6,4,7,7,3,3,5,2,1,7,5,2,14,16];
+console.log(`
+The Milwaukee Brewers Pythagorean Win-Loss for the 2019 season put them at 81-81. However, this perfectly average team finished the season 89-73, and made the playoffs. Did they have a lot of lucky wins? Or do the numbers not tell the whole story?
 
-const rs = [5,5,4,5,4,4,1,13,8,4,2,8,2,8,4,1,10,8,3,
-    1,3,5,5,5,3,2,10,8,2,5,4,4,6,3,4,3,5,6,7,7,1,1,4,
-    6,5,11,8,3,3,0,11,4,2,9,5,3,11,4,12,4,0,3,5,10,
-    5,5,8,6,3,7,5,0,1,7,1,7,6,7,3,2,4,2,3,2,8,4,0,0,
-    7,2,5,7,5,3,2,13,5,5,7,8,7,5,6,5,3,5,4,2,4,3,2,1,
-    2,9,4,8,6,3,0,5,6,1,15,8];
+Use the score shifter to predict possible records.
 
-shifter(rs, ra, results =>{
+  *Use positive numbers to compare runs scored to runs allowed in following games, and negative numbers to compare to games prior.*  
+
+`);
+
+shifter(data.rs, data.ra, results =>{
     results.map(outcome => {
         if(outcome > 0){
             wins++;
@@ -34,6 +30,13 @@ shifter(rs, ra, results =>{
 
     console.log(`
 ++----------------------------------------------------------------++
+
+    Actual Season Record:
+            
+        wins: 89 
+        losses: 73
+        Winning Percentage: 0.549
+
     With entered shift, season record stats would be:
             
         wins: ${wins}
@@ -49,5 +52,3 @@ shifter(rs, ra, results =>{
     `);
     process.exit();
 });
-
-
